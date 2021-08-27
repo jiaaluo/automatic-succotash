@@ -300,9 +300,15 @@ public interface MovementHelper extends ActionCosts, Helper {
             // plus magma, which is a normal cube but it hurts you
             return false;
         }
-        if (isBlockNormalCube(state)) {
-            return true;
-        }
+try {
+    if (isBlockNormalCube(state)) {
+        return true;
+    }
+}
+catch (Exception e)
+{
+    //e.printStackTrace();
+}
         if (block == Blocks.LADDER || (block == Blocks.VINE && Baritone.settings().allowVines.value)) { // TODO reconsider this
             return true;
         }
